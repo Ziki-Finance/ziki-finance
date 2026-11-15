@@ -1,0 +1,15 @@
+{
+  "name": "ziki-finance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-led stock research and daily market briefings for Ziki",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch server/index.mjs",
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "test": "node --test",
+    "check": "node --check server/index.mjs && node --check server/research.mjs && node --check public/app.js",
+    "briefing": "node --env-file-if-exists=.env scripts/briefing.mjs"
+  }
+}

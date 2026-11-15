@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ziki Finance — Research before the trade</title>
+  <meta name="description" content="Your market research workspace. Explore stock evidence, independent agent assessments, and daily market briefings.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" type="module"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="/" aria-label="Ziki Finance home"><img src="/favicon.svg" width="33" height="33" alt=""><span>ziki<span class="brand-dot">.</span></span></a>
+  <button class="workspace" id="workspace"><span class="workspace-icon">F</span><span>Ziki Finance<small>Research workspace</small></span><span class="chevron">⌄</span></button>
+  <div class="nav-label">WORKSPACE</div>
+  <nav aria-label="Finance navigation">
+    <button class="nav-item active" data-page="Overview"><span data-icon="overview"></span>Overview</button>
+    <button class="nav-item" data-page="Research"><span data-icon="research"></span>Stock research<span class="nav-number">6</span></button>
+    <button class="nav-item" data-page="Watchlist"><span data-icon="star"></span>Watchlist<span class="nav-number" id="watch-count">0</span></button>
+    <button class="nav-item" data-page="Briefings"><span data-icon="brief"></span>Daily briefings</button>
+    <button class="nav-item" data-page="Agents"><span data-icon="agents"></span>Research agents</button>
+  </nav>
+  <div class="sidebar-note"><span class="tiny-spark">✧</span><strong>A little more perspective.</strong><p>Agents do the research.<br>You make the decisions.</p><button id="how-it-works">How it works <span>↗</span></button></div>
+  <div class="sidebar-bottom"><a href="https://ziki.dev" target="_blank" rel="noreferrer"><span data-icon="external"></span> Back to Ziki <span>↗</span></a><button id="settings"><span data-icon="settings"></span> Data & settings</button><div class="account"><span class="avatar">Y</span><div>Your workspace<small>Personal research</small></div><span class="account-dot"></span></div></div>
+</aside>
+<div class="app-shell">
+  <header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" id="menu" aria-label="Toggle navigation"><span data-icon="menu"></span></button><span>Workspace</span><span>/</span><strong>Finance</strong><span class="beta">BETA</span></div><div class="top-actions"><button class="search-trigger" id="search-trigger"><span data-icon="search"></span><span>Search a stock...</span><kbd>/</kbd></button><button class="icon-button" id="notification" aria-label="Open market briefings"><span data-icon="bell"></span></button><span class="avatar top-avatar">Y</span></div></header>
+  <main id="main" tabindex="-1">
+    <div class="page-heading"><div><div class="eyebrow">YOUR MARKET, IN PERSPECTIVE</div><h1 id="page-title">Finance overview<span class="heading-dot">.</span></h1><p id="page-subtitle">Less market noise. More informed decisions.</p></div><div class="heading-actions"><span class="date" id="today"></span><button class="button primary" id="new-research"><span data-icon="plus"></span> Research a stock</button></div></div>
+    <div class="data-banner" id="data-banner"><span class="status-dot"></span><span><strong>Sample workspace</strong> · Fictional market data, for exploring the experience.</span><button id="connect-data">Connect live data <span>↗</span></button></div>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="overview-content">
+      <section class="market-strip" id="market-strip" aria-label="Market snapshot"><div class="skeleton">Loading the research universe…</div></section>
+      <section class="hero-grid">
+        <article class="daily-card"><div class="card-eyebrow"><span class="pill light"><span data-icon="spark"></span> THE DAILY PERSPECTIVE</span><span class="sample-label">Sample edition</span></div><h2>See the bigger picture.<br>Find your next move.</h2><p>A clear view of the companies on your radar, with the evidence and risks behind every verdict.</p><div class="daily-bottom"><button class="button white" id="read-brief">Read market briefing <span>↗</span></button><div class="agent-stack"><span>A</span><span>P</span><span>S</span><small>4 research agents<br><b>One informed perspective</b></small></div></div><svg class="hero-art" viewBox="0 0 220 180" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M0 160h220M0 115h220M0 70h220M0 25h220" opacity=".12"/><path d="M20 135l30-27 22 8 33-49 24 14 35-47 36-11" stroke-width="3"/><path d="M169 23h31v31" stroke-width="3"/></g><g fill="currentColor" opacity=".15"><rect x="23" y="145" width="20" height="35" rx="3"/><rect x="60" y="125" width="20" height="55" rx="3"/><rect x="97" y="100" width="20" height="80" rx="3"/><rect x="134" y="73" width="20" height="107" rx="3"/><rect x="171" y="58" width="20" height="122" rx="3"/></g></svg></article>
+        <article class="card pulse-card"><div class="section-top"><h2>Research pulse</h2><span data-icon="activity"></span></div><p class="muted">Where the current evidence points</p><div class="pulse-score"><strong id="buy-count">—</strong><span>stocks with a<br><b>buy research signal</b></span><span class="pulse-orbit">↗</span></div><div class="signal-bar" id="signal-bar"></div><div class="signal-legend" id="signal-legend"></div><div class="pulse-foot"><span data-icon="shield"></span> Every signal includes a risk review</div></article>
+      </section>
+    </div>
+    <section class="content-grid" id="research-content">
+      <article class="card research-card"><div class="section-top"><div><h2 id="table-title">On the agents’ radar <span class="count-badge">6 stocks</span></h2><p class="muted" id="table-description">Independent perspectives. Evidence you can inspect.</p></div><button class="text-button" id="view-all">View all research <span>↗</span></button></div><div class="table-controls"><div class="tabs" aria-label="Filter research"><button class="selected" data-filter="All">All stocks</button><button data-filter="Buy">Buy</button><button data-filter="Hold">Hold</button><button data-filter="Reduce">Reduce</button></div><button class="icon-button" id="sort" aria-label="Sort by daily change"><span data-icon="sort"></span></button></div><div class="table-scroll"><table><thead><tr><th>Company</th><th>Price / USD</th><th>1D change</th><th>Agent verdict</th><th aria-label="Save stock"></th></tr></thead><tbody id="stocks"><tr><td colspan="5" class="empty">Gathering stock evidence…</td></tr></tbody></table></div><div class="table-footer"><span><span class="status-dot blue"></span> <span id="evidence-label">Sample research universe</span></span><span id="result-count"></span></div></article>
+      <aside class="right-column" id="right-column"><article class="card watch-card"><div class="section-top"><h2>Your watchlist <span class="count-badge" id="watch-badge">0</span></h2><button class="icon-button" id="add-watch" aria-label="Add a stock to watchlist"><span data-icon="plus"></span></button></div><div id="watchlist-preview"></div><button class="full-link" id="open-watchlist">Open watchlist <span>→</span></button></article><article class="research-note"><span class="note-icon" data-icon="agents"></span><div><strong>Research together.<br>Decide for yourself.</strong><p>Atlas, Pulse, Scout, and Shield bring four perspectives to every stock.</p><button class="text-button" id="meet-agents">Meet your agents <span>↗</span></button></div></article></aside>
+    </section>
+    <section id="briefings-content" hidden></section><section id="agents-content" hidden></section>
+    <div class="bottom-note"><span data-icon="shield"></span><p>Built for informed decisions. Agent verdicts are research signals, not personalised investment advice. Markets carry risk.</p><span>Human-led. AI-assisted.</span></div>
+    <footer>© <span id="year"></span> Ziki Finance<span>Research before the trade.</span></footer>
+  </main>
+</div>
+<dialog id="research-dialog" class="research-dialog" aria-label="Stock research report"><div id="research-dialog-content"></div></dialog>
+<dialog id="search-dialog" aria-label="Find a stock"><div class="dialog-top"><h2>Find your next research subject</h2><button class="icon-button" data-close aria-label="Close search">×</button></div><p class="muted">Search the supported US stock universe.</p><label class="search-input"><span data-icon="search"></span><input id="stock-search" type="search" aria-label="Search companies or symbols" placeholder="Company name or ticker" autocomplete="off"></label><div id="search-results"></div></dialog>
+<dialog id="settings-dialog" aria-label="Market data and research settings"><div class="dialog-top"><h2>Market data & research</h2><button class="icon-button" data-close aria-label="Close settings">×</button></div><div id="settings-body"></div></dialog>
+<div id="toast" role="status" hidden></div>
+</body></html>
